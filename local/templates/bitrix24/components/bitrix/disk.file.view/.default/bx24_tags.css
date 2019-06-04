@@ -1,0 +1,57 @@
+.bx24-disk-tags-add {
+    display: none;
+    margin-bottom: 10px;
+}
+.bx24-disk-tags-add.opened {
+    display: block;
+}
+.bx24-disk-tagsform-input-text {
+    position: relative;
+    z-index: 1;
+    box-sizing: border-box;
+    margin: 0px 1px;
+    padding: 0 10px 0 10px;
+    width: 112px;
+    height: 30px;
+    outline: 0;
+    border: 1px solid #e3e3e3;
+    border-radius: 2px;
+    font: 15px/30px "Helvetica Neue",Arial,Helvetica,sans-serif;
+    transition: background .3s;
+    display: inline-block;
+    vertical-align: top;
+}
+.bx24-disk-tagsform-input-submit {
+    display: inline-block;
+    width: 87px;
+    position: relative;
+    color:#fff;
+    background: #3bc8f5;
+    text-align: center;
+    text-decoration: none;
+    text-transform: uppercase;
+    white-space: nowrap;
+    font: var(--ui-btn-font-size)/calc(var(--ui-btn-height) - 2px) "OpenSans-Bold","Helvetica Neue",Helvetica,Arial,sans-serif;
+    border: none;
+    vertical-align: top;
+    height: 30px;
+    line-height: 17px;
+}
+.bx24-disk-tag-wrap {
+    margin: 0 10px 10px 0;
+    display: inline-block;
+    border: 1px solid #828b95;
+    border-radius: 10px;
+    padding: 4px 10px;
+}
+.bx24-disk-tag-wrap a,
+.bx24-disk-tag-wrap a.bx24-disk-tag {
+    color: #828b95;
+}
+.bx24-disk-tag-wrap a:hover,
+.bx24-disk-tag-wrap a.bx24-disk-tag:hover {
+    color: #828b95;
+}
+.bx24-disk-tag-trash {
+    margin-left: 5px;
+}
