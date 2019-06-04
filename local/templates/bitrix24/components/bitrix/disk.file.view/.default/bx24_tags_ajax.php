@@ -51,8 +51,6 @@ if ( $action == 'addTags' ) {
                 $response['tag_id'] = $idElement;
                 $response['status'] = 'success';
             }
-
-            $response['status'] = 'success';
         }
     }
 
