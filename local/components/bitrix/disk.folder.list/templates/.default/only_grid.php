@@ -8,14 +8,12 @@ if(!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED!==true) die();
 	$generateEmptyBlock = 'function() {
 			return BX.create("div", {
 				props: {
-					className: "disk-folder-list-no-data-inner",
-					id: "js-disk-folder-list-no-data-inner"
+					className: "disk-folder-list-no-data-inner"
 				},
 				children: [
 					BX.create("div", {
 						props: {
 							className: "disk-folder-list-no-data-inner-message"
-							
 						},
 						text: BX.message("DISK_FOLDER_LIST_EMPTY_BLOCK_MESSAGE")
 					}),
@@ -65,12 +63,6 @@ if(!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED!==true) die();
 			})
 		}'
 	;
-
-    // TODO
-    $request = Bitrix\Main\Context::getCurrent()->getRequest();
-    if ( !empty( $request['tag'] ) ) {
-        $generateEmptyBlock = NULL;
-    }
 
 	$APPLICATION->IncludeComponent(
 		'bitrix:main.ui.grid',

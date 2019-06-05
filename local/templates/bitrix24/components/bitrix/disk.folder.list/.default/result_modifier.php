@@ -4,6 +4,7 @@
 \Bitrix\Main\Page\Asset::getInstance()->addCss('/local/templates/bitrix24/components/bitrix/disk.folder.list/.default/bx24_tags.css');
 
 if ( CModule::IncludeModule('iblock') ) {
+    $arTags = array();
     $arSelect = Array("ID", "NAME", "PROPERTY_FILE_ID");
     $arFilter = Array(
         "IBLOCK_ID" => IBLOCK_DISK_TAGS_ID,
@@ -12,13 +13,7 @@ if ( CModule::IncludeModule('iblock') ) {
     );
     $rsTags = CIBlockElement::GetList(array(), $arFilter, false, array(),  $arSelect );
     while($tagFields = $rsTags->GetNext()) {
-        $arResult['TAGS'][] = $tagFields;
+        $arTags[ $tagFields['NAME'] ] = $tagFields;
     }
+    $arResult['TAGS'] = $arTags;
 }
-
-$arResult['FILTER']['FILTER'][] = array(
-    'id' => 'TAGS',
-    'name' => 'Теги',
-    'default' => 1
-);
-

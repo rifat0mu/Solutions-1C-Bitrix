@@ -52,9 +52,7 @@
 			"CONFIRM_APPLY" => Loc::getMessage("MAIN_UI_FILTER__CONFIRM_RESET_APPLY"),
 			"CONFIRM_CANCEL" => Loc::getMessage("MAIN_UI_FILTER__BUTTON_CANCEL")
 	));
-
-
-	?>
+?>
 
 <!-- Final :: Search -->
 <div class="main-ui-filter-search<?=$arResult["DISABLE_SEARCH"] || !$arParams["CONFIG"]["SEARCH"] ? " main-ui-filter-no-search" : ""?> main-ui-filter-theme-<?=strtolower($arResult["THEME"])?><?=$arResult["COMPACT_STATE"] ? " main-ui-filter-compact-state" : ""?>" id="<?=$arParams["FILTER_ID"]?>_search_container">
@@ -136,7 +134,7 @@
 
 				<div class="main-ui-filter-field-preset-button-container">
 					<div class="main-ui-filter-field-button-inner">
-						<button class="ui-btn ui-btn-primary ui-btn-icon-search main-ui-filter-field-button  main-ui-filter-find" id="js-main-ui-filter-find">
+						<button class="ui-btn ui-btn-primary ui-btn-icon-search main-ui-filter-field-button  main-ui-filter-find">
 							<?=Loc::getMessage("MAIN_UI_FILTER__FIND")?></button>
 						<span class="ui-btn ui-btn-light-border main-ui-filter-field-button main-ui-filter-reset">
 							<?=Loc::getMessage("MAIN_UI_FILTER__RESET")?></span>
@@ -161,10 +159,12 @@
 	</div><!--main-ui-filter-wrapper-->
 </script>
 
-
+<?
+    $frame->end();
+?>
 
 <script>
-    BX.Main.filterManager.push(
+	BX.Main.filterManager.push(
 		'<?=\CUtil::jSEscape($arParams["FILTER_ID"])?>',
 		new BX.Main.Filter(
 			<?=CUtil::PhpToJSObject($arResult)?>,
@@ -175,25 +175,7 @@
 			<?=CUtil::PhpToJSObject(AdditionalDateType::getList())?>
 		)
 	);
-    <?
-    // TODO
-    $request = Bitrix\Main\Context::getCurrent()->getRequest();
-    if ( !empty( $request['tag'] ) ) { ?>
-        BX(function () {
-            setTimeout(function() {
-                var filter_find_btn = document.getElementById("js-main-ui-filter-find");
-                filter_find_btn.click();
-                console.log(filter_find_btn);
-                console.log('click');
-            }, 4000);
-            // clearTimeout(timerId);
-        });
-    <? } ?>
 </script>
-<?
-$frame->end();
-
-?>
 <?
 	if (!empty($arResult["TARGET_VIEW_ID"]))
 	{

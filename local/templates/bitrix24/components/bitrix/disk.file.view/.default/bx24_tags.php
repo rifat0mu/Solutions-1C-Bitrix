@@ -30,6 +30,7 @@ Loc::loadMessages(__DIR__ . '/template.php');
     BX(function () {
 
         var urlAjax = "/local/templates/bitrix24/components/bitrix/disk.file.view/.default/bx24_tags_ajax.php";
+        var urlTags = "<?= BX24\Disk\Tags::GetLinkFilterTag() ?>";
 
         BX.bindDelegate(
             BX('bx24-disk-tags-results'), 'click', {className: 'bx24-disk-tag-trash' },
@@ -112,7 +113,7 @@ Loc::loadMessages(__DIR__ . '/template.php');
                                 BX.create('a', {
                                     attrs: {
                                         className: 'bx24-disk-tag bx24-disk-tag-id'+response.tag_id,
-                                        href: '#'
+                                        href: urlTags+response.tag_value
                                     },
                                     text: response.tag_value
                                 }),

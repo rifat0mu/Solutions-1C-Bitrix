@@ -191,14 +191,16 @@ if (
 
 
 if ( CModule::IncludeModule('iblock') ) {
-    $arSelect = Array("ID", "NAME", "PROPERTY_FILE_ID");
-    $arFilter = Array(
+    $arTags = array();
+    $arSelect = array("ID", "NAME", "PROPERTY_FILE_ID");
+    $arFilter = array(
         "IBLOCK_ID" => IBLOCK_DISK_TAGS_ID,
         "ACTIVE" => "Y",
         "PROPERTY_FILE_ID" => $arResult['FILE']['ID']
     );
     $rsTags = CIBlockElement::GetList(array(), $arFilter, false, array(),  $arSelect );
     while($tagFields = $rsTags->GetNext()) {
-        $arResult['Group']['DISK_TAGS'][] = $tagFields;
+        $arTags[ $tagFields['NAME'] ] = $tagFields;
     }
+    $arResult['Group']['DISK_TAGS'] = $arTags;
 }
